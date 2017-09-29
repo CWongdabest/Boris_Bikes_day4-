@@ -20,5 +20,16 @@ describe DockingStation do
 
   it { is_expected.to respond_to(:dock).with(1).argument }
 
+  it { is_expected.to respond_to(:bike) }
+
+  it 'docks my bike at DockingStation' do
+    bike = docking_station.release_bike
+    expect(docking_station.dock(bike)).to eq bike
+  end
+
+  it 'show the bikes at docking station' do
+  bike = docking_station.dock(Bike.new)
+  expect(docking_station.bike).to eq bike
+  end
 
 end
